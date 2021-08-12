@@ -35,7 +35,7 @@ RUN go mod download \
 RUN go build -o k8s-workshop -a .
 
 ### Production
-FROM alpine:latest
+FROM alpine:latest AS prod
 
 ARG APP_VERSION
 ENV APP_VERSION="${APP_VERSION}"
@@ -44,6 +44,7 @@ RUN apk update \
     && apk add --no-cache \
     ca-certificates \
     curl \
+    iputils \
     tzdata \
     && update-ca-certificates
 

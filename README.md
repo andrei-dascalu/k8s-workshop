@@ -13,3 +13,9 @@
 * Register `gcloud`: `gcloud auth application-default login`
 * Init your configuration: `gcloud init` and login again with your Yopeso Google account. When prompted, select the project and choose to setup a default zone then select "15" (europe-west4-b)
 * Load cluster config: `gcloud container clusters get-credentials workshop-k8s`
+
+
+### Tools ###
+
+* Various GCP features need to be activated per project on first use (list: `gcloud services list --available`)
+* Of interest: cloudbuild.googleapis.com, containerregistry.googleapis.com, gkeconnect.googleapis.com, gkehub.googleapis.com
