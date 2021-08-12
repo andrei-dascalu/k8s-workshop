@@ -19,3 +19,5 @@
 
 * Various GCP features need to be activated per project on first use (list: `gcloud services list --available`)
 * Of interest: cloudbuild.googleapis.com, containerregistry.googleapis.com, gkeconnect.googleapis.com, gkehub.googleapis.com
+* The correct procedure to setup cluster access is to create a SA with limited access then grant it access to the registry from which the cluster can read images
+* 1) `gcloud iam service-accounts list`, 2) `gsutil ls`, 3) eg: `gsutil iam ch serviceAccount:sa-k8s-workshop@workshops-yopeso.iam.gserviceaccount.com:roles/storage.admin gs://eu.artifacts.workshops-yopeso.appspot.com/`

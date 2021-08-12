@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: yopeso
-    image: eu.gcr.io/workshops-yopeso/k8s:v1
+    image: eu.gcr.io/workshops-yopeso/workshop:v2
     env:
       - name: TEST_ONE
         value: someval

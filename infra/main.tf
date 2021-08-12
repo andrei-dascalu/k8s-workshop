@@ -7,7 +7,6 @@ provider "google" {
 resource "google_service_account" "cluster_account" {
   account_id   = "sa-k8s-workshop"
   display_name = "K8s Workshop SA"
-
 }
 
 resource "google_container_cluster" "primary" {
@@ -16,7 +15,6 @@ resource "google_container_cluster" "primary" {
   initial_node_count = 2
   node_version       = var.gke_k8s_version
   min_master_version = var.gke_k8s_version
-  release_channel    = "Regular"
 
   node_config {
     preemptible  = true
@@ -25,7 +23,8 @@ resource "google_container_cluster" "primary" {
     service_account = google_service_account.cluster_account.email
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform",
-      "https://www.googleapis.com/auth/devstorage.read_write"
+      "https://www.googleapis.com/auth/devstorage.read_only",
+      "https://www.googleapis.com/auth/compute.readonly"
     ]
   }
 
