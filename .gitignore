@@ -1,0 +1,3 @@
+infra/.terraform/
+k8s-workshop
+main

@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  app-dev:
+    container_name: app-dev
+    build:
+      context: .
+      target: dev
+    volumes:
+    - .:/app:rw,delegated
+    networks:
+    - dev_network
+    ports:
+    - 8181:8080
+    - 2345:2345
+
+networks:
+  dev_network:
+    name: dev_network
