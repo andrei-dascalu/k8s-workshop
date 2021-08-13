@@ -1,0 +1,27 @@
+---
+# <ip>.<namspace>.pod.cluster.local
+apiVersion: v1
+kind: Pod
+metadata:
+  name: first-app
+  namespace: test
+  labels:
+    app: first
+spec:
+  containers:
+  - name: yopeso
+    image: eu.gcr.io/workshops-yopeso/workshop:v2
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: TEST_ONE
+        value: someval
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "150m"
+      requests:
+        memory: "64Mi"
+        cpu: "100m"
+    ports:
+      - containerPort: 3000
+        name: api

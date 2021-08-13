@@ -1,0 +1,24 @@
+---
+# <ip>.<namspace>.pod.cluster.local
+apiVersion: v1
+kind: Pod
+metadata:
+  name: first-app
+  namespace: test
+  labels:
+    app: first
+spec:
+  containers:
+  - name: web
+    image: nginx:latest
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "50m"
+      requests:
+        memory: "64Mi"
+        cpu: "50m"
+    ports:
+    - containerPort: 3000
+      name: web
