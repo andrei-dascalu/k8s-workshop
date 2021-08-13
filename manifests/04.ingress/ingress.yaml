@@ -14,7 +14,7 @@ metadata:
   namespace: k8s-adascalu
 spec:
   rules:
-  - host: "k8s-dascalu.mysecurity.tech"
+  - host: "adascalu.mysecurity.tech"
     http:
       paths:
       - backend:
@@ -26,5 +26,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - "k8s-dascalu.mysecurity.tech"
-    secretName: test-workshop-tls
+    - "adascalu.mysecurity.tech"
+    secretName: adascalu-tls
