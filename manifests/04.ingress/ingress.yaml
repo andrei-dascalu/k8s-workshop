@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    acme.cert-manager.io/http01-ingress-class: "nginx"
+    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-body-size: 128m
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    kubernetes.io/ingress.global-static-ip-name: "ws-static"
+  name: test-ingress
+  namespace: test
+spec:
+  rules:
+  - host: "test.mysecurity.tech"
+    http:
+      paths:
+      - backend:
+          service:
+            name: y-service
+            port:
+              name: web
+        path: /
+  tls:
+  - hosts:
+    - "test.mysecurity.tech"
+    secretName: test-workshop-tls

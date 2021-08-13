@@ -30,3 +30,4 @@
 * `kubectl get svc -n <namespace>`
 * `kubectl create secret generic my-secret --from-literal=VAR=val -n <namespace>`
 * `kubectl create secret generic my-secret --from-env-file=my.env -n <namespace>`
+* `kubectl create configmap my-config --from-file=<path> -n <namespace>`

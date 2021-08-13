@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  namespace: test
+  labels:
+    app: first
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: first
+  template:
+    metadata:
+      labels:
+        app: first
+    spec:
+      # volumes:
+      #   - name: config-volume
+      #     configMap:
+      #       name: special-config
+      containers:
+      - name: api
+        image: eu.gcr.io/workshops-yopeso/workshop:v2
+        ports:
+        - containerPort: 80
+          port: apiPort
+        # volumeMounts:
+        # - name: config-volume
+        #   mountPath: /etc/config
