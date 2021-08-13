@@ -23,7 +23,7 @@ spec:
             name: my-config-file
       containers:
       - name: api
-        image: eu.gcr.io/workshops-yopeso/workshop:v2
+        image: eu.gcr.io/workshops-yopeso/workshop:v3
         env:
         - name: FROM_DEPLOYMENT
           value: "yes"

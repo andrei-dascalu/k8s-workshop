@@ -11,19 +11,20 @@ metadata:
     nginx.ingress.kubernetes.io/enable-cors: "true"
     kubernetes.io/ingress.global-static-ip-name: "ws-static"
   name: test-ingress
-  namespace: test
+  namespace: k8s-adascalu
 spec:
   rules:
-  - host: "test.mysecurity.tech"
+  - host: "k8s-dascalu.mysecurity.tech"
     http:
       paths:
       - backend:
           service:
-            name: y-service
+            name: my-service
             port:
               name: web
         path: /
+        pathType: Prefix
   tls:
   - hosts:
-    - "test.mysecurity.tech"
+    - "k8s-dascalu.mysecurity.tech"
     secretName: test-workshop-tls
