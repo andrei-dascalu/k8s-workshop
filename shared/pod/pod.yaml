@@ -1,0 +1,29 @@
+---
+# <ip>.<namspace>.pod.cluster.local
+apiVersion: v1
+kind: Pod
+metadata:
+  name: diagnostics
+  namespace: test
+  labels:
+    app: first
+spec:
+  containers:
+  - name: diagnostic
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "sleep 7200"
+    image: busybox:latest
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: TEST_ONE
+        value: someval
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "100m"
+      requests:
+        memory: "64Mi"
+        cpu: "50m"
+

@@ -34,3 +34,7 @@ resource "google_container_cluster" "primary" {
   }
 }
 
+resource "google_compute_global_address" "ip_address" {
+  name = "ws-static"
+  project = var.gke_project
+}
