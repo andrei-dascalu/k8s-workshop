@@ -30,6 +30,7 @@ func main() {
 
 		return c.JSON(map[string]string{
 			"version":  os.Getenv("APP_VERSION"),
+			"env":      os.Getenv("FROM_DEPLOYMENT"),
 			"hostname": hostName,
 		})
 	})

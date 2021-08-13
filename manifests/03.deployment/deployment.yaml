@@ -17,10 +17,10 @@ spec:
         app: first
         type: test
     spec:
-      # volumes:
-      #   - name: config-volume
-      #     configMap:
-      #       name: special-config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: my-config-file
       containers:
       - name: api
         image: eu.gcr.io/workshops-yopeso/workshop:v2
@@ -40,6 +40,6 @@ spec:
         ports:
         - containerPort: 8080
           name: web
-        # volumeMounts:
-        # - name: config-volume
-        #   mountPath: /etc/config
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
