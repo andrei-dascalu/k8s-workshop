@@ -2,18 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-deployment
-  namespace: test
+  namespace: k8s-adascalu
   labels:
     app: first
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: first
+      type: test
   template:
     metadata:
       labels:
         app: first
+        type: test
     spec:
       # volumes:
       #   - name: config-volume
@@ -22,9 +24,16 @@ spec:
       containers:
       - name: api
         image: eu.gcr.io/workshops-yopeso/workshop:v2
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
         ports:
-        - containerPort: 80
-          port: apiPort
+        - containerPort: 8080
+          name: web
         # volumeMounts:
         # - name: config-volume
         #   mountPath: /etc/config

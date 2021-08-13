@@ -6,6 +6,7 @@ metadata:
 spec:
   selector:
     app: first
+    type: test
   ports:
     - protocol: TCP
       port: 80
