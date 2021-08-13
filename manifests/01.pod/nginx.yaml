@@ -1,17 +1,17 @@
 ---
-# <ip>.<namspace>.pod.cluster.local
+# <ip>.<namespace>.pod.cluster.local
 apiVersion: v1
 kind: Pod
 metadata:
   name: first-app
-  namespace: test
+  namespace: k8s-adascalu
   labels:
     app: first
 spec:
   containers:
   - name: web
     image: nginx:latest
-    imagePullPolicy: IfNotPresent
+    imagePullPolicy: Always
     resources:
       limits:
         memory: "64Mi"
@@ -20,5 +20,5 @@ spec:
         memory: "64Mi"
         cpu: "50m"
     ports:
-    - containerPort: 3000
+    - containerPort: 80
       name: web

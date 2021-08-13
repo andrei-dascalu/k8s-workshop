@@ -12,7 +12,7 @@ resource "google_service_account" "cluster_account" {
 resource "google_container_cluster" "primary" {
   name               = var.gke_k8s_name
   location           = var.gke_zone
-  initial_node_count = 2
+  initial_node_count = 4
   node_version       = var.gke_k8s_version
   min_master_version = var.gke_k8s_version
 
