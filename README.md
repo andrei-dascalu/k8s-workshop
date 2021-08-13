@@ -1,4 +1,4 @@
-## Yopese K8s Workshop ##
+## Yopeso K8s Workshop ##
 
 ### Requirements ###
 
