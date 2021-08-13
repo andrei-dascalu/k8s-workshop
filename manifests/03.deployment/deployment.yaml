@@ -24,6 +24,12 @@ spec:
       containers:
       - name: api
         image: eu.gcr.io/workshops-yopeso/workshop:v2
+        env:
+        - name: FROM_DEPLOYMENT
+          value: "yes"
+        envFrom:
+        - configMapRef:
+            name: my-config
         resources:
           limits:
             memory: "64Mi"
